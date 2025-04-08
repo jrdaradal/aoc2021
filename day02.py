@@ -2,7 +2,7 @@
 # John Roy Daradal 
 
 # SolutionA: 1484118
-
+# SolutionB: 1463827010
 
 from utils import *
 
@@ -25,5 +25,17 @@ def day02A():
             y += (dy * d)
     print(x*y)
 
+def day02B():
+    full = True 
+    x, y, a = 0, 0, 0 
+    for dy, d in input02(full):
+        if dy == 0:
+            x += d 
+            y += a * d 
+        else: 
+            a += dy * d 
+    print(x*y)
+
 if __name__ == '__main__':
     day02A()
+    day02B()
