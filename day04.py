@@ -2,6 +2,7 @@
 # John Roy Daradal 
 
 # SolutionA: 22680
+# SolutionB: 16168
 
 from utils import * 
 
@@ -62,6 +63,23 @@ def day04A():
                 print(score)
                 return
 
+def day04B():
+    full = True 
+    numbers, cards = input04(full)
+    numCards = len(cards)
+    winners = set()
+    for number in numbers:
+        for i, b in enumerate(cards):
+            if i in winners: continue 
+
+            b.markNumber(number)
+            if b.hasWon:
+                winners.add(i)
+            if len(winners) == numCards:
+                score = number * b.score 
+                print(score)
+                return
 
 if __name__ == '__main__':
     day04A()
+    day04B()
