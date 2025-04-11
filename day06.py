@@ -2,6 +2,7 @@
 # John Roy Daradal 
 
 # SolutionA: 391671
+# SolutionB: 1754000560399
 
 from utils import * 
 
@@ -13,6 +14,11 @@ def day06A():
     full = True 
     fish = input06(full)
     simulate(fish, 80)
+
+def day06B():
+    full = True 
+    fish = input06(full)
+    simulate(fish, 256)
 
 def simulate(fish: list[int], days: int):
     groups = {}
@@ -35,3 +41,4 @@ def simulate(fish: list[int], days: int):
 
 if __name__ == '__main__':
     day06A()
+    day06B()
