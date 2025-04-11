@@ -2,6 +2,7 @@
 # John Roy Daradal 
 
 # SolutionA: 345197
+# SolutionB: 96361606
 
 from utils import * 
 
@@ -17,5 +18,19 @@ def day07A():
     total = sum(abs(median-x) for x in numbers)
     print(total)
 
+def day07B():
+    full = True 
+    numbers = input07(full)
+    start, end = min(numbers), max(numbers)
+    minCost = float('inf')
+    for target in range(start,end+1):
+        total = sum(sumRange(abs(target-x)) for x in numbers)
+        minCost = min(minCost, total)
+    print(minCost)
+
+def sumRange(x: int) -> int:
+    return sum(range(x+1))
+
 if __name__ == '__main__':
     day07A()
+    day07B()
