@@ -1,4 +1,5 @@
 coords = tuple[int, int]
+box    = tuple[coords,coords] # bounds
 
 def getPath(day: int, full: bool) -> str:
     suffix = 'test' if full else 'sample'
@@ -12,3 +13,11 @@ def readLines(path: str, strip: bool = True) -> list[str]:
         lines = [x for x in f.readlines()]
     f.close()
     return lines
+
+def gridBounds(grid: list) -> box:
+    return ((0,0), (len(grid), len(grid[0])))
+
+def isInsideBounds(c: coords, bounds: box) -> bool:
+    (minRow,minCol),(maxRow,maxCol) = bounds 
+    row,col = c 
+    return minRow <= row and minCol <= col and row < maxRow and col < maxCol 
